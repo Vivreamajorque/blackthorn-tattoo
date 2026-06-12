@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackthorn Tattoo — Campos, Mallorca</title>
+  <meta name="description" content="Blackthorn Tattoo Studio — Fine Line, Realism, Blackwork. Campos, Mallorca. Book your session." />
+  <meta property="og:title" content="Blackthorn Tattoo — Campos, Mallorca" />
+  <meta property="og:description" content="Fine Line, Realism, Blackwork. Campos, Mallorca." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --noir: #0A0A0A;
+      --ivoire: #F2EDE4;
+      --terra: #B85C38;
+      --pierre: #6B6560;
+      --fond: #111111;
+    }
+
+    html, body {
+      background: var(--noir);
+      color: var(--ivoire);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    /* LANG SWITCHER */
+    .lang-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.5rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);
+    }
+    .lang-bar button {
+      background: none;
+      border: none;
+      color: var(--pierre);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .lang-bar button:hover,
+    .lang-bar button.active { color: var(--ivoire); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      line-height: 1.05;
+      color: var(--ivoire);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span {
+      color: var(--terra);
+    }
+
+    .hero-sub {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pierre);
+      margin-bottom: 3rem;
+    }
+
+    .hero-divider {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--terra), transparent);
+      margin: 0 auto 3rem;
+    }
+
+    .hero-styles {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      margin-bottom: 4rem;
+    }
+
+    .hero-styles span {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--pierre);
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--terra);
+      color: var(--ivoire);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      background: none;
+    }
+    .cta-btn:hover {
+      background: var(--terra);
+      color: var(--ivoire);
+    }
+
+    /* STORY SECTION */
+    .story-section {
+      padding: 6rem 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 2rem;
+    }
+
+    .story-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      color: var(--ivoire);
+      margin-bottom: 1.5rem;
+    }
+
+    .story-text {
+      font-size: 0.85rem;
+      line-height: 1.9;
+      color: var(--pierre);
+      margin-bottom: 3rem;
+    }
+
+    /* SEPARATOR */
+    .sep {
+      width: 40px;
+      height: 1px;
+      background: var(--terra);
+      margin: 4rem auto;
+      opacity: 0.5;
+    }
+
+    /* LOCATION */
+    .location {
+      padding: 4rem 2rem 6rem;
+      text-align: center;
+    }
+
+    .location-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1rem;
+      color: var(--pierre);
+      margin-bottom: 0.5rem;
+    }
+
+    .location-address {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--pierre);
+      opacity: 0.6;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(107,101,96,0.2);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--pierre);
+      opacity: 0.5;
+    }
+
+    /* THORN SVG watermark */
+    .watermark {
+      position: fixed;
+      bottom: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+    .inline-lang { display: none; }
+    .inline-lang.active { display: inline; }
+  </style>
+</head>
+<body>
+
+  <!-- Watermark SVG épines -->
+  <svg class="watermark" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 10 C60 40, 20 80, 30 130 C40 170, 80 190, 100 190 C120 190, 160 170, 170 130 C180 80, 140 40, 100 10Z" stroke="#F2EDE4" stroke-width="1" fill="none"/>
+    <path d="M100 30 L85 60 L70 45" stroke="#F2EDE4" stroke-width="0.8"/>
+    <path d="M100 30 L115 60 L130 45" stroke="#F2EDE4" stroke-width="0.8"/>
+    <path d="M80 80 L65 110 L50 95" stroke="#F2EDE4" stroke-width="0.8"/>
+    <path d="M120 80 L135 110 L150 95" stroke="#F2EDE4" stroke-width="0.8"/>
+    <path d="M90 130 L75 155 L60 145" stroke="#F2EDE4" stroke-width="0.8"/>
+    <path d="M110 130 L125 155 L140 145" stroke="#F2EDE4" stroke-width="0.8"/>
+  </svg>
+
+  <!-- LANG BAR -->
+  <nav class="lang-bar">
+    <button onclick="setLang('es')" id="btn-es" class="active">ES</button>
+    <button onclick="setLang('en')" id="btn-en">EN</button>
+    <button onclick="setLang('fr')" id="btn-fr">FR</button>
+    <button onclick="setLang('de')" id="btn-de">DE</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Campos · Mallorca</p>
+    <h1 class="hero-title">
+      <span data-lang="es" class="active">Blackthorn<br/>Tattoo</span>
+      <span data-lang="en">Blackthorn<br/>Tattoo</span>
+      <span data-lang="fr">Blackthorn<br/>Tattoo</span>
+      <span data-lang="de">Blackthorn<br/>Tattoo</span>
+    </h1>
+    <p class="hero-sub">Fine Line &nbsp;·&nbsp; Realism &nbsp;·&nbsp; Blackwork</p>
+    <div class="hero-divider"></div>
+    <div class="hero-styles">
+      <span data-lang="es" class="active inline-lang active">Estudio de tatuaje</span>
+      <span data-lang="en" class="inline-lang">Tattoo Studio</span>
+      <span data-lang="fr" class="inline-lang">Studio de tatouage</span>
+      <span data-lang="de" class="inline-lang">Tattoo Studio</span>
+    </div>
+    <a href="#book" class="cta-btn">
+      <span data-lang="es" class="active">Reservar sesión</span>
+      <span data-lang="en">Book a session</span>
+      <span data-lang="fr">Réserver une séance</span>
+      <span data-lang="de">Termin buchen</span>
+    </a>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- STORY SECTION -->
+  <section class="story-section" id="story">
+    <p class="section-eyebrow">
+      <span data-lang="es" class="active">Tu historia en tu piel</span>
+      <span data-lang="en">Your story on your skin</span>
+      <span data-lang="fr">Ton histoire sur ta peau</span>
+      <span data-lang="de">Deine Geschichte auf deiner Haut</span>
+    </p>
+    <h2 class="story-title">
+      <span data-lang="es" class="active">Descubre el tatuaje que cuenta realmente tu historia.</span>
+      <span data-lang="en">Discover the tattoo that truly tells your story.</span>
+      <span data-lang="fr">Découvre le tatouage qui raconte vraiment ton histoire.</span>
+      <span data-lang="de">Entdecke das Tattoo, das wirklich deine Geschichte erzählt.</span>
+    </h2>
+    <p class="story-text">
+      <span data-lang="es" class="active">Una experiencia creativa guiada por IA para imaginar un concepto de tatuaje único, a tu imagen. En 2 minutos, Tony recibe tu historia.</span>
+      <span data-lang="en">A creative AI-guided experience to imagine a unique tattoo concept, in your image. In 2 minutes, Tony receives your story.</span>
+      <span data-lang="fr">Une expérience créative guidée par l'IA pour imaginer un concept de tatouage unique, à ton image. En 2 minutes, Tony reçoit ton histoire.</span>
+      <span data-lang="de">Ein kreatives, KI-geführtes Erlebnis, um ein einzigartiges Tattoo-Konzept zu entwickeln. In 2 Minuten erhält Tony deine Geschichte.</span>
+    </p>
+    <a href="#" class="cta-btn" id="story-btn">
+      <span data-lang="es" class="active">Comenzar la experiencia</span>
+      <span data-lang="en">Start the experience</span>
+      <span data-lang="fr">Commencer l'expérience</span>
+      <span data-lang="de">Erlebnis starten</span>
+    </a>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- LOCATION -->
+  <section class="location" id="book">
+    <p class="section-eyebrow">Studio</p>
+    <p class="location-title">Blackthorn Tattoo</p>
+    <p class="location-address">Carrer de Santanyí 19 · Campos · Mallorca</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Blackthorn Tattoo · Campos, Mallorca</p>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      // Hide all lang elements
+      document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.inline-lang').forEach(el => el.classList.remove('active'));
+      // Show selected lang
+      document.querySelectorAll('[data-lang="' + lang + '"]').forEach(el => el.classList.add('active'));
+      // Update buttons
+      document.querySelectorAll('.lang-bar button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('btn-' + lang).classList.add('active');
+    }
+
+    // Auto-detect browser language
+    const browserLang = navigator.language.slice(0, 2);
+    const supported = ['es', 'en', 'fr', 'de'];
+    if (supported.includes(browserLang)) setLang(browserLang);
+  </script>
+
+</body>
+</html>
