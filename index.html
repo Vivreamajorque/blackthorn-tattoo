@@ -388,6 +388,90 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 52
   border-radius: 20px;
   backdrop-filter: blur(6px);
 }
+
+/* ===== INSTAGRAM FEED ===== */
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.ig-item {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #1a1a1a;
+  cursor: pointer;
+}
+.ig-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+.ig-item:hover img { transform: scale(1.05); }
+.ig-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12,12,12,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.ig-item:hover .ig-item-overlay { opacity: 1; }
+.ig-item-overlay svg { color: #fff; width: 32px; height: 32px; }
+.ig-video-badge {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+}
+/* Skeleton loading */
+.ig-skel {
+  aspect-ratio: 1;
+  background: linear-gradient(90deg, #1a1a1a 25%, #252525 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: ig-shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+@keyframes ig-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+/* CTA Instagram */
+.ig-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent);
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.02em;
+}
+.ig-cta-btn:hover { background: var(--accent); color: #0C0C0C; }
+/* Erreur / fallback */
+.ig-error {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.ig-error a { color: var(--accent); }
+@media(max-width:640px) {
+  .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 3px; }
+}
 </style>
 </head>
 <body>
@@ -502,45 +586,26 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 52
       Chaque tatouage est pensé sur mesure — pour la peau, le projet, et la personne.
     </p>
 
-    <!-- CAROUSEL -->
-    <div class="cs-wrap" aria-label="Galerie de réalisations">
-      <div class="cs-track" id="csTrack">
-      <div class="cs-slide" role="group" aria-label="Photo 1 sur 28"><img src="photos/tatouage-dos-complet-viking-mythologie-nordique-campos-majorque.jpg" alt="Tatouage dos complet — mythologie viking — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 2 sur 28"><img src="photos/tatouage-ornemental-clavicule-epaules-campos-majorque.jpg" alt="Tatouage ornemental clavicule et épaules — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 3 sur 28"><img src="photos/tatouage-arbre-vie-aigle-dos-complet-campos-majorque.jpg" alt="Tatouage arbre de vie avec aigle — dos complet — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 4 sur 28"><img src="photos/tatouage-arbre-dos-complet-campos-majorque.jpg" alt="Tatouage arbre — dos complet — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 5 sur 28"><img src="photos/tatouage-sleeve-masque-roses-bras-complet-campos-majorque.jpg" alt="Tatouage manchette complète — masque et roses — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 6 sur 28"><img src="photos/tatouage-sleeve-floral-bras-campos-majorque.jpg" alt="Tatouage sleeve floral — bras — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 7 sur 28"><img src="photos/tatouage-dos-phare-architecture-campos-majorque.jpg" alt="Tatouage dos — phare et architecture — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 8 sur 28"><img src="photos/tatouage-taureau-guerrier-poitrine-campos-majorque.jpg" alt="Tatouage taureau et guerrier — poitrine — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 9 sur 28"><img src="photos/tatouage-phoenix-demi-manchette-campos-majorque.jpg" alt="Tatouage phoenix — demi-manchette — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 10 sur 28"><img src="photos/tatouage-lion-lionceau-realiste-mollet-campos-majorque.jpg" alt="Tatouage lion et lionceau réaliste — mollet — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 11 sur 28"><img src="photos/tatouage-mandala-ornemental-sternum-campos-majorque.jpg" alt="Tatouage mandala ornemental — sternum — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 12 sur 28"><img src="photos/tatouage-ange-guerrier-avant-bras-campos-majorque.jpg" alt="Tatouage ange guerrier — avant-bras — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 13 sur 28"><img src="photos/tatouage-floral-colonne-vertebrale-dos-campos-majorque.jpg" alt="Tatouage floral — colonne vertébrale — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 14 sur 28"><img src="photos/tatouage-boussole-carte-rose-demi-manchette-campos-majorque.jpg" alt="Tatouage boussole carte et rose — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 15 sur 28"><img src="photos/tatouage-papillon-geometrique-lune-avant-bras-campos-majorque.jpg" alt="Tatouage papillon géométrique et lune — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 16 sur 28"><img src="photos/tatouage-polynesien-tribal-cotes-campos-majorque.jpg" alt="Tatouage polynésien tribal — côtes — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 17 sur 28"><img src="photos/tatouage-portrait-chat-realiste-avant-bras-campos-majorque.jpg" alt="Tatouage portrait chat réaliste — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 18 sur 28"><img src="photos/tatouage-rose-main-fineline-campos-majorque.jpg" alt="Tatouage rose sur la main — fine line — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 19 sur 28"><img src="photos/tatouage-rose-poignard-cuisse-campos-majorque.jpg" alt="Tatouage rose et poignard — cuisse — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 20 sur 28"><img src="photos/tatouage-silhouette-paysage-jambe-campos-majorque.jpg" alt="Tatouage silhouette paysage — jambe — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 21 sur 28"><img src="photos/tatouage-ailes-coeur-poitrine-campos-majorque.jpg" alt="Tatouage ailes et cœur — poitrine — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 22 sur 28"><img src="photos/tatouage-lettrage-dos-epaules-campos-majorque.jpg" alt="Tatouage lettrage — dos et épaules — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 23 sur 28"><img src="photos/tatouage-lettrage-script-clavicule-campos-majorque.jpg" alt="Tatouage lettrage script — clavicule — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 24 sur 28"><img src="photos/tatouage-chapelet-fleurs-cheville-campos-majorque.jpg" alt="Tatouage chapelet et fleurs — cheville — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 25 sur 28"><img src="photos/tatouage-mickey-mouse-avant-bras-campos-majorque.jpg" alt="Tatouage Mickey Mouse — avant-bras — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 26 sur 28"><img src="photos/tatouage-soleil-lune-croix-colonne-vertebrale-campos-majorque.jpg" alt="Tatouage soleil lune croix — colonne vertébrale — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 27 sur 28"><img src="photos/tatouage-botanique-fineline-poitrine-campos-majorque.jpg" alt="Tatouage botanique fine line — poitrine — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
-      <div class="cs-slide" role="group" aria-label="Photo 28 sur 28"><img src="photos/tatouage-pieuvre-epaule-campos-majorque.jpg" alt="Tatouage pieuvre — épaule — Blackthorn Tattoo Campos Majorque" loading="lazy"></div>
+    <!-- FEED INSTAGRAM DYNAMIQUE -->
+    <div id="ig-feed-wrap">
+      <!-- Grille qui se remplira via JS -->
+      <div id="ig-grid" class="ig-grid" aria-label="Dernières réalisations Instagram"></div>
+      <!-- Fallback skeleton pendant le chargement -->
+      <div id="ig-skeleton" class="ig-grid" aria-hidden="true">
+        <div class="ig-skel"></div><div class="ig-skel"></div><div class="ig-skel"></div>
+        <div class="ig-skel"></div><div class="ig-skel"></div><div class="ig-skel"></div>
+        <div class="ig-skel"></div><div class="ig-skel"></div><div class="ig-skel"></div>
       </div>
-      <button class="cs-btn cs-prev" onclick="csMove(-1)" aria-label="Photo précédente">←</button>
-      <button class="cs-btn cs-next" onclick="csMove(1)" aria-label="Photo suivante">→</button>
-      <div class="cs-counter" id="csCounter">1 / 28</div>
     </div>
 
-    <p style="text-align:center; margin-top:24px; font-size:13px; color:var(--muted);">
-      <a href="https://www.instagram.com/blackthorntattoo_campos" target="_blank" style="color:var(--accent); text-decoration:none;" data-fr="→ Voir toutes les réalisations sur Instagram" data-en="→ See all works on Instagram" data-es="→ Ver todos los trabajos en Instagram" data-de="→ Alle Arbeiten auf Instagram ansehen">
+    <p style="text-align:center; margin-top:28px;">
+      <a href="https://www.instagram.com/blackthorntattoo_campos" target="_blank" rel="noopener"
+         class="ig-cta-btn"
+         data-fr="→ Voir toutes les réalisations sur Instagram"
+         data-en="→ See all works on Instagram"
+         data-es="→ Ver todos los trabajos en Instagram"
+         data-de="→ Alle Arbeiten auf Instagram ansehen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:7px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         → Voir toutes les réalisations sur Instagram
       </a>
     </p>
@@ -963,7 +1028,7 @@ document.querySelectorAll('.style-card, .review-card, .slot-step, .proof-item, .
   
 /* ===== CAROUSEL ===== */
 let csIndex = 0;
-const csTotalSlides = 28;
+const csTotalSlides = 0; // carousel remplacé par feed Instagram
 function csMove(dir) {
   csIndex = (csIndex + dir + csTotalSlides) % csTotalSlides;
   document.getElementById('csTrack').style.transform = `translateX(-${csIndex * 100}%)`;
@@ -984,6 +1049,87 @@ function csMove(dir) {
     if (e.key === 'ArrowLeft') csMove(-1);
     if (e.key === 'ArrowRight') csMove(1);
   });
+})();
+
+// ===== INSTAGRAM FEED =====
+(function() {
+  const grid = document.getElementById('ig-grid');
+  const skeleton = document.getElementById('ig-skeleton');
+  if (!grid) return;
+
+  const IG_USER = 'blackthorntattoo_campos';
+  const IG_URL = `https://www.instagram.com/${IG_USER}/`;
+
+  // Photos de secours (les vraies photos déjà uploadées)
+  const FALLBACK = [
+    { src:'photos/tatouage-dos-complet-viking-mythologie-nordique-campos-majorque.jpg', alt:'Tatouage dos complet' },
+    { src:'photos/tatouage-ornemental-clavicule-epaules-campos-majorque.jpg', alt:'Tatouage ornemental' },
+    { src:'photos/tatouage-arbre-vie-aigle-dos-complet-campos-majorque.jpg', alt:'Tatouage arbre de vie' },
+    { src:'photos/tatouage-sleeve-masque-roses-bras-complet-campos-majorque.jpg', alt:'Tatouage sleeve' },
+    { src:'photos/tatouage-phoenix-demi-manchette-campos-majorque.jpg', alt:'Tatouage phoenix' },
+    { src:'photos/tatouage-lion-lionceau-realiste-mollet-campos-majorque.jpg', alt:'Tatouage lion' },
+    { src:'photos/tatouage-mandala-ornemental-sternum-campos-majorque.jpg', alt:'Tatouage mandala' },
+    { src:'photos/tatouage-ange-guerrier-avant-bras-campos-majorque.jpg', alt:'Tatouage ange guerrier' },
+    { src:'photos/tatouage-papillon-geometrique-lune-avant-bras-campos-majorque.jpg', alt:'Tatouage papillon' },
+  ];
+
+  function renderPost(src, alt, href, isVideo) {
+    const a = document.createElement('a');
+    a.href = href || IG_URL;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.className = 'ig-item';
+    a.setAttribute('aria-label', alt);
+
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = alt;
+    img.loading = 'lazy';
+
+    const overlay = document.createElement('div');
+    overlay.className = 'ig-item-overlay';
+    overlay.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
+
+    a.appendChild(img);
+    a.appendChild(overlay);
+    if (isVideo) {
+      const badge = document.createElement('span');
+      badge.className = 'ig-video-badge';
+      badge.textContent = '▶ Vidéo';
+      a.appendChild(badge);
+    }
+    return a;
+  }
+
+  function showFallback() {
+    if (skeleton) skeleton.style.display = 'none';
+    grid.innerHTML = '';
+    FALLBACK.forEach(p => {
+      grid.appendChild(renderPost(p.src, p.alt, IG_URL, false));
+    });
+  }
+
+  async function loadFeed() {
+    try {
+      // Appel à notre API Vercel serverless
+      const resp = await fetch('/api/instagram-feed', { signal: AbortSignal.timeout(6000) });
+      if (!resp.ok) throw new Error('API ' + resp.status);
+      const data = await resp.json();
+      if (!data.posts || data.posts.length === 0) throw new Error('no posts');
+
+      if (skeleton) skeleton.style.display = 'none';
+      grid.innerHTML = '';
+      data.posts.forEach(p => {
+        grid.appendChild(renderPost(p.thumbnail, p.alt, p.url, p.isVideo));
+      });
+    } catch (err) {
+      console.warn('[IG feed] fallback:', err.message);
+      showFallback();
+    }
+  }
+
+  // Démarrer le chargement
+  loadFeed();
 })();
 
 </script>
