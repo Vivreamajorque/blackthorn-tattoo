@@ -1,10 +1,45 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/photos/(.*)", "dest": "/photos/$1" },
-    { "src": "/(studio-.*\\.jpg)", "dest": "/$1" },
-    { "src": "/sitemap\\.xml", "dest": "/sitemap.xml" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/photos/(.*)",
+      "dest": "/photos/$1"
+    },
+    {
+      "src": "/(studio-.*\\.jpg)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/sitemap\\.xml",
+      "dest": "/sitemap.xml"
+    },
+    {
+      "src": "/fine-line-tattoo-mallorca",
+      "dest": "/fine-line-tattoo-mallorca.html"
+    },
+    {
+      "src": "/tattoo-studio-south-mallorca",
+      "dest": "/tattoo-studio-south-mallorca.html"
+    },
+    {
+      "src": "/tatouage-majorque",
+      "dest": "/tatouage-majorque.html"
+    },
+    {
+      "src": "/tattoo-mallorca-urlaub",
+      "dest": "/tattoo-mallorca-urlaub.html"
+    },
+    {
+      "src": "/realism-tattoo-mallorca",
+      "dest": "/realism-tattoo-mallorca.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
