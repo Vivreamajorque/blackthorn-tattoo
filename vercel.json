@@ -1,8 +1,10 @@
 {
   "version": 2,
   "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/photos/(.*)", "dest": "/photos/$1" },
     { "src": "/(studio-.*\\.jpg)", "dest": "/$1" },
+    { "src": "/sitemap\\.xml", "dest": "/sitemap.xml" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
