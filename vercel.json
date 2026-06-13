@@ -14,6 +14,10 @@
       "dest": "/$1"
     },
     {
+      "src": "/logo.jpg",
+      "dest": "/logo.jpg"
+    },
+    {
       "src": "/sitemap\\.xml",
       "dest": "/sitemap.xml"
     },
