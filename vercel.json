@@ -42,6 +42,10 @@
       "dest": "/realism-tattoo-mallorca.html"
     },
     {
+      "src": "/confirmation",
+      "dest": "/confirmation.html"
+    },
+    {
       "src": "/favicon.ico",
       "dest": "/favicon.ico"
     },
